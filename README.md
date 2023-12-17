@@ -1,0 +1,1 @@
+Hello everyone! This is just a template text to get us started for the game we want to create eventually. I love each and everyone of you!
