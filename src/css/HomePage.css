@@ -2,72 +2,115 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #7ec8e3; /* Adjust the color to match the background in your image */
+    background: linear-gradient(135deg, #7ec8e3 0%, #6bbad7 100%);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+}
+
+.background-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden; /* Hide overflow from the side containers */
+}
+
+.side-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    width: calc(20vw - 40px); /* Adjust the width to give some space to the home container */
+}
+
+/* Ensure that the .side-container is not too wide, and that it does not cover the .home-container */
+.side-container.left { left: 0; }
+.side-container.right { right: 0; }
+
+.random-image {
+    width: 25%; /* Adjust if you want smaller images */
+    height: auto; /* Maintain the aspect ratio */
+    margin: 0 0 10px 0; /* Add some space between images */
+    object-fit: contain; /* Ensure the images are fully visible within the element bounds */
 }
 
 .home-container {
+    z-index: 10;
     text-align: center;
-    max-width: 800px;
-    width: 90%;
-    padding: 2em;
-    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    width: 60vw; /* Give more space to the home container */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the home container */
 }
 
 .logo {
-    max-width: 500px; /* Adjust based on your image size */
-    margin: 0 auto 2em;
+    width: 80%;
+    max-width: 550px;
+    margin: 0 auto 3em;
+    animation: float 3s ease-in-out infinite;
 }
 
 .home-title {
-    font-size: 3em;
+    font-size: calc(2vw + 1em);
     color: #ffffff;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: -1px;
-    margin-bottom: 1.5em; /* Adjust the space between the title and the buttons */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2em;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .buttons-container {
     display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: center; /* Center buttons horizontally */
-    gap: 1em; /* This is the vertical spacing between buttons */
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
 }
 
 .button {
-    background-color: #e3997e; /* Adjust color to match your design */
+    background-color: #e3997e;
     color: white;
-    font-size: 1.2em;
-    padding: 0.8em 2.5em;
+    font-size: 2em;
+    padding: 0.6em 2em;
+    width: auto;
+    max-width: 300px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-    transition: all 0.2s ease;
-    width: auto;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
 }
 
 .button:hover,
 .button:focus {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     background-color: #b57a64;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
 @media (max-width: 768px) {
     .home-container {
         max-width: 100%;
-        border-radius: 10px; /* Smaller radius for small screens */
+        border-radius: 10px;
     }
 
     .home-title {
