@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.home-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #7ec8e3;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-title {
+    font-size: 2em;
+    color: #ffffff;
+}
+
+/* Wave Effect */
+
+.home-container::before,
+.home-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20vh;
+    background: #fff;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.home-container::before {
+    transform: rotate(180deg);
+    background: #fff;
+}
+
+.home-container::after {
+    background: #fff;
+    animation: wave 20s infinite linear;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0) rotate(180deg);
+    }
+
+    100% {
+        transform: translateX(-100%) rotate(180deg);
+    }
+}

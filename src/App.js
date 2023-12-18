@@ -1,9 +1,10 @@
 import React from "react";
+import HomePage from "./HomePage";
 
 function App() {
     return (
         <div>
-            <h1>Velkommen til vårt drikkespill!</h1>
+            <HomePage />
         </div>
     );
 }
