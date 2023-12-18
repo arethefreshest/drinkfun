@@ -21,6 +21,7 @@
   max-width: 500px; /* Maximum width of the modal */
   text-align: center;
   position: relative;
+  animation: modalFadeIn 0.3s ease-out forwards;
 }
 
 /* Add a close button in the top-right corner */
@@ -68,6 +69,3 @@
     }
   }
   
-  .modal-content {
-    animation: modalFadeIn 0.3s ease-out forwards;
-  }

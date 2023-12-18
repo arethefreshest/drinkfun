@@ -23,5 +23,28 @@
     "prettier.disableLanguages": [
         "js",
         "jsx"
+    ],
+    "cSpell.words": [
+        "eller",
+        "enhet",
+        "enheter",
+        "flaske",
+        "flere",
+        "fordrukne",
+        "gsap",
+        "hver",
+        "Innstillinger",
+        "Logg",
+        "lokalt",
+        "pirat",
+        "Sjømann",
+        "slukke",
+        "spille",
+        "spillmodus",
+        "tilbake",
+        "Tweens",
+        "tørst",
+        "Velg",
+        "Ønsker"
     ]
 }
