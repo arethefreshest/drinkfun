@@ -1,11 +1,19 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useNavigate } from 'react-router-dom';
 import './css/HomePage.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage() {
+
+    const navigate = useNavigate();
+
+    const handleStartGameClick = () => navigate('/game');
+    const handleLoginClick = () => navigate('/login');
+    const handleSettingsClick = () => navigate('/settings');
+
     const imagesToLoad = [
         '/pictures/fisk3.png', '/pictures/fisk4.png',
         '/pictures/flaske1.png', '/pictures/flaske2.png', '/pictures/flaske3.png', '/pictures/glass.png',
@@ -72,41 +80,41 @@ function HomePage() {
 
     return (
         <div className="background-container">
-          <div className="side-container left" ref={leftSideContainerRef}>
-            {imagesToLoad.map((imagePath, index) => (
-              <img
-                key={`left-image-${index}`}
-                src={imagePath}
-                alt=""
-                className="random-image"
-              />
-            ))}
-          </div>
-    
+            <div className="side-container left" ref={leftSideContainerRef}>
+                {imagesToLoad.map((imagePath, index) => (
+                    <img
+                        key={`left-image-${index}`}
+                        src={imagePath}
+                        alt=""
+                        className="random-image"
+                    />
+                ))}
+            </div>
 
-      <div className="home-container">
-        <img src="/pictures/logo.png" alt="Logo" className="logo" />
-        <h1 className="home-title">Den fordrukne pirat er tilbake for å slukke tørst</h1>
-        <div className="buttons-container">
-          <button className="button">Start et spill</button>
-          <button className="button">Logg inn</button>
-          <button className="button">Innstillinger</button>
+
+            <div className="home-container">
+                <img src="/pictures/logo.png" alt="Logo" className="logo" />
+                <h1 className="home-title">Den fordrukne pirat er tilbake for å slukke tørst</h1>
+                <div className="buttons-container">
+                    <button className="button" onClick={handleStartGameClick}>Start et spill</button>
+                    <button className="button" onClick={handleLoginClick}>Logg inn</button>
+                    <button className="button" onClick={handleSettingsClick}>Innstillinger</button>
+                </div>
+            </div>
+
+
+            <div className="side-container right" ref={rightSideContainerRef}>
+                {imagesToLoad.map((imagePath, index) => (
+                    <img
+                        key={`right-image-${index}`}
+                        src={imagePath}
+                        alt=""
+                        className="random-image"
+                    />
+                ))}
+            </div>
         </div>
-      </div>
-
-
-    <div className="side-container right" ref={rightSideContainerRef}>
-        {imagesToLoad.map((imagePath, index) => (
-          <img
-            key={`right-image-${index}`}
-            src={imagePath}
-            alt=""
-            className="random-image"
-          />
-        ))}
-      </div>
-    </div>
-  );
+    );
 }
 
 export default HomePage;
