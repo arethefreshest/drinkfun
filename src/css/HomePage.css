@@ -1,52 +1,81 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #7ec8e3; /* Adjust the color to match the background in your image */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 .home-container {
     text-align: center;
-    padding: 20px;
-    background-color: #7ec8e3;
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
+    max-width: 800px;
+    width: 90%;
+    padding: 2em;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    max-width: 500px; /* Adjust based on your image size */
+    margin: 0 auto 2em;
 }
 
 .home-title {
-    font-size: 2em;
+    font-size: 3em;
     color: #ffffff;
+    font-weight: 300;
+    letter-spacing: -1px;
+    margin-bottom: 1.5em; /* Adjust the space between the title and the buttons */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Wave Effect */
-
-.home-container::before,
-.home-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20vh;
-    background: #fff;
-    z-index: -1;
-    opacity: 0.6;
+.buttons-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    gap: 1em; /* This is the vertical spacing between buttons */
 }
 
-.home-container::before {
-    transform: rotate(180deg);
-    background: #fff;
+.button {
+    background-color: #e3997e; /* Adjust color to match your design */
+    color: white;
+    font-size: 1.2em;
+    padding: 0.8em 2.5em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    transition: all 0.2s ease;
+    width: auto;
 }
 
-.home-container::after {
-    background: #fff;
-    animation: wave 20s infinite linear;
+.button:hover,
+.button:focus {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    background-color: #b57a64;
 }
 
-@keyframes wave {
-    0% {
-        transform: translateX(0) rotate(180deg);
+@media (max-width: 768px) {
+    .home-container {
+        max-width: 100%;
+        border-radius: 10px; /* Smaller radius for small screens */
     }
 
-    100% {
-        transform: translateX(-100%) rotate(180deg);
+    .home-title {
+        font-size: 2rem;
+    }
+
+    .button {
+        font-size: 1em;
+        padding: 0.6em 2em;
     }
 }
