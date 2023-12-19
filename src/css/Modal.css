@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -12,60 +14,158 @@
 }
 
 .modal-content {
-  background: white;
+  background: #f2f2f2; /* Light grey for contrast with blue background */
   padding: 2em;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4px);
-  width: auto;
-  max-width: 500px; /* Maximum width of the modal */
+  width: 80%;
+  max-width: 600px;
   text-align: center;
   position: relative;
   animation: modalFadeIn 0.3s ease-out forwards;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
-/* Add a close button in the top-right corner */
 .modal-close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 1.5em;
-    color: #333;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #333333; /* Dark grey for visibility */
+}
+
+.modal-button {
+  background-color: #004175; /* Navy blue for the button */
+  color: #FFFFFF; /* White text for contrast */
+  font-size: 1em;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  display: block;
+  margin: 1em auto;
+  width: 80%;
+  max-width: 300px;
+}
+
+.modal-button:hover,
+.modal-button:focus {
+  background-color: #ff6b6b; /* Coral for hover state */
+  color: #FFFFFF; /* White text color */
+}
+
+/* Animation for modal entrance */
+@keyframes modalFadeIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
   }
-  
-  /* Button styling inside the modal */
-  .modal-button {
-    background-color: #e3997e;
-    color: white;
-    font-size: 1.2em;
-    padding: 0.8em 2.5em;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 1em;
-    transition: all 0.2s ease;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .modal-button:hover,
-  .modal-button:focus {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    background-color: #fa957e;
-  }
-  
-  /* If you want to add animation to the modal */
-  @keyframes modalFadeIn {
-    from {
-      transform: translateY(-50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
+}
+
+.modal-player-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1em;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.modal-player-list li {
+  background-color: #FFFFFF;
+  color: #333333;
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-player-list li:hover {
+  background-color: #e6f0f3; /* Soft blue for hover */
+}
+
+.modal-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.modal-input {
+  flex-grow: 1;
+  margin-right: 1em;
+  padding: 0.5em;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  width: calc(100% - 50px);
+  padding: 2em; /* Increase padding to make input taller */
+  font-size: 1em; /* Adjust font size as necessary */
+}
+
+.modal-add-player-button {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.modal-add-player-button img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.modal-add-player-button:hover img {
+  transform: scale(1.1);
+}
+
+/* New Start Game button at the bottom of the modal */
+.start-game-button {
+  background-color: #ff6b6b; /* Coral for the start game button */
+  color: #FFFFFF; /* White text for visibility */
+  font-size: 1.5em;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 2em;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 2em auto; /* Centers the button with auto margin */
+}
+
+.start-game-button:hover {
+  background-color: #004175; /* Navy blue for hover */
+}
+
+.remove-player-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  visibility: hidden; /* Hide button by default */
+}
+
+.modal-player-list li:hover .remove-player-button {
+  visibility: visible; /* Show button on hover */
+  transition: visibility 0.3s ease;
+}

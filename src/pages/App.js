@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import GameRoom from './GameRoom';
 import PlayerLogin from './PlayerLogin';
-import Settings from './Settings';
+import Settings from '../components/Settings';
 
 function App() {
   return (
